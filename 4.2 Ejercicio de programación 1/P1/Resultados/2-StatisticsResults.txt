@@ -1,0 +1,13 @@
+=========================
+RESULTADOS DE ESTADÍSTICAS
+=========================
+
+Cantidad:            1977
+Promedio:            250.784016
+Mediana:             247.000000
+Moda:                230.0
+Varianza:            20795.888044
+Desviación Estándar: 144.171319
+
+Tiempo de Ejecución: 0.072690 segundos
+=========================
