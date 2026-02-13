@@ -53,21 +53,24 @@ def compute_sales(catalogue, sales_data):
 
 def format_output(total, elapsed_time, results):
     output = []
+    output.append("-" * 90)
     output.append("COSTO TOTAL DE VENTAS")
-    output.append("=" * 25)
+    output.append("-" * 90)
+    output.append(f"Tiempo: {elapsed_time:.4f} segundos")
+    output.append("=" * 90)
     output.append("")
 
     for product, qty, price, subtotal in results:
-        line = f"{product}: {qty} x ${price:.2f} = ${subtotal:.2f}"
+        line = f"{product:<30} {qty:>5}     x     ${price:>10.2f}     =     ${subtotal:>12.2f}"
         output.append(line)
-        output.append("-" * 55)
 
     output.append("")
-    output.append("=" * 25)
+    output.append("=" * 90)
     output.append(f"TOTAL: ${total:.2f}")
-    output.append("-" * 25)
+    output.append("-" * 90)
     output.append(f"Tiempo: {elapsed_time:.4f} segundos")
-    output.append("=" * 25)
+    output.append("=" * 90)
+    output.append("-" * 90)
 
     return '\n'.join(output)
 
