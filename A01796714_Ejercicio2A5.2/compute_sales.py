@@ -1,14 +1,31 @@
+"""
+Este programa calcula el costo total de ventas con base en:
+Catálogo JSON de precios.
+JSON de de ventas.
+
+Uso:
+    python compute_sales.py <catalogue_file.json> <sales_file.json>
+"""
+
+
 import json
 import sys
 import time
 
 
 def load_file_json(filename):
+    """
+    Carga un JSON y retorna su contenido como un objeto de Python.
+    """
     with open(filename, 'r', encoding='utf-8') as file:
         return json.load(file)
 
 
 def build_price_catalogue(data):
+    """
+    Construye un diccionario de precios, partiendo de:
+    Catálogo JSON.
+    """
     prices = {}
     for item in data:
         try:
@@ -21,7 +38,12 @@ def build_price_catalogue(data):
     return prices
 
 
-def compute_sales(catalogue, sales_data):
+def compute_sales_function(catalogue, sales_data):
+    """
+    Esta función calcula el costo total de ventas, partiendo de:
+    Catálogo de precios.
+    JSON de ventas.
+    """
     total = 0.0
     results = []
 
@@ -52,6 +74,12 @@ def compute_sales(catalogue, sales_data):
 
 
 def format_output(total, elapsed_time, results):
+    """
+    Función para formatear la salida de los resultados, partiendo de:
+    Costo total de ventas.
+    Tiempo de ejecución.
+    Resultados detallados.
+    """
     output = []
     output.append("-" * 90)
     output.append("COSTO TOTAL DE VENTAS")
@@ -76,6 +104,9 @@ def format_output(total, elapsed_time, results):
 
 
 def main():
+    """
+    Función principal (main).
+    """
     if len(sys.argv) != 3:
         sys.exit(1)
 
@@ -97,7 +128,7 @@ def main():
         sys.exit(1)
 
     catalogue = build_price_catalogue(catalogue_data)
-    total, results = compute_sales(catalogue, sales_data)
+    total, results = compute_sales_function(catalogue, sales_data)
 
     elapsed_time = time.time() - start_time
 
