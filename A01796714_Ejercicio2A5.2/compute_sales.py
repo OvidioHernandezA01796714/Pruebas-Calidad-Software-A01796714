@@ -89,7 +89,8 @@ def format_output(total, elapsed_time, results):
     output.append("")
 
     for product, qty, price, subtotal in results:
-        line = f"{product:<30} {qty:>5}     x     ${price:>10.2f}     =     ${subtotal:>12.2f}"
+        line = (f"{product:<30} {qty:>5}     x     "
+                f"${price:>10.2f}     =     ${subtotal:>12.2f}")
         output.append(line)
 
     output.append("")
