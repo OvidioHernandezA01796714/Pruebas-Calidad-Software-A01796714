@@ -33,7 +33,6 @@ class Customer:
         _save(data)
         return True
 
-    @staticmethod
     def get(customer_id):
         data = _load()
         record = data["customers"].get(customer_id)
@@ -42,7 +41,6 @@ class Customer:
             return None
         return Customer(**record)
 
-    @staticmethod
     def display(customer_id):
         customer = Customer.get(customer_id)
         if customer:
@@ -51,7 +49,6 @@ class Customer:
             print(f"Email    : {customer.email}")
             print(f"Teléfono : {customer.phone}")
 
-    @staticmethod
     def modify(customer_id, **kwargs):
         data = _load()
         if customer_id not in data["customers"]:
@@ -67,7 +64,7 @@ class Customer:
         return True
 
 
-DATA_FILE = "tc.json"
+DATA_FILE = "./test/tc1.json"
 
 
 def _load():
