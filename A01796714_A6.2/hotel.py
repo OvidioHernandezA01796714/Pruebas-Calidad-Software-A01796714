@@ -76,7 +76,7 @@ class Hotel:
         return total - occupied
     
 
-DATA_FILE = "tc1.json"
+DATA_FILE = "tc.json"
 
 def _load():
     if not os.path.exists(DATA_FILE):
