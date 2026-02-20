@@ -1,4 +1,7 @@
-"""Clase Customer (Huésped) con las acciones CRUD para la información del cliente."""
+"""
+Clase Customer (Huésped) con las acciones CRUD
+para la información del cliente.
+"""
 
 import json
 import os
@@ -12,6 +15,7 @@ class Customer:
         self.email = email
         self.phone = phone
 
+    @staticmethod
     def create(customer_id, name, email, phone=""):
         """Acción para registrar un nuevo cliente."""
         data = _load()
@@ -27,6 +31,7 @@ class Customer:
         _save(data)
         return True
 
+    @staticmethod
     def delete(customer_id):
         """Acción para eliminar un cliente."""
         data = _load()
@@ -37,6 +42,7 @@ class Customer:
         _save(data)
         return True
 
+    @staticmethod
     def get(customer_id):
         """Acción para obtener un cliente por su ID."""
         data = _load()
@@ -46,6 +52,7 @@ class Customer:
             return None
         return Customer(**record)
 
+    @staticmethod
     def display(customer_id):
         """Acción para mostrar la información de un cliente."""
         customer = Customer.get(customer_id)
@@ -55,6 +62,7 @@ class Customer:
             print(f"Email    : {customer.email}")
             print(f"Teléfono : {customer.phone}")
 
+    @staticmethod
     def modify(customer_id, **kwargs):
         """Acción para modificar un cliente existente."""
         data = _load()

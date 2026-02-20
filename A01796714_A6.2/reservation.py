@@ -1,4 +1,5 @@
-"""Clase Reservation con las acciones CRUD para la información de las reservaciones y manejo de su estado."""
+"""Clase Reservation con las acciones CRUD
+para la información de las reservaciones y manejo de su estado."""
 
 import json
 import os
@@ -7,8 +8,9 @@ from hotel import Hotel
 
 class Reservation:
     """Clase que representa una reservación de hotel."""
+    # pylint: disable=too-many-arguments, too-many-positional-arguments
     def __init__(self, reservation_id, customer_id, hotel_id,
-                 check_in, check_out, status="active"):
+                 check_in, check_out, status="activo"):
         self.reservation_id = reservation_id
         self.customer_id = customer_id
         self.hotel_id = hotel_id
@@ -16,6 +18,7 @@ class Reservation:
         self.check_out = check_out
         self.status = status
 
+    @staticmethod
     def create(reservation_id, customer_id, hotel_id, check_in, check_out):
         """Acción para crear una nueva reservación."""
         data = _load()
@@ -45,11 +48,12 @@ class Reservation:
             "hotel_id": hotel_id,
             "check_in": check_in,
             "check_out": check_out,
-            "status": "active",
+            "status": "activo",
         }
         _save(data)
         return True
 
+    @staticmethod
     def cancel(reservation_id):
         """Acción para cancelar una reservación."""
         data = _load()
@@ -66,6 +70,7 @@ class Reservation:
         _save(data)
         return True
 
+    @staticmethod
     def get(reservation_id):
         """Acción para obtener una reservación por su ID."""
         data = _load()
@@ -75,6 +80,7 @@ class Reservation:
             return None
         return Reservation(**record)
 
+    @staticmethod
     def display(reservation_id):
         """Acción para mostrar la información de una reservación."""
         res = Reservation.get(reservation_id)
@@ -88,6 +94,7 @@ class Reservation:
 
 
 DATA_FILE = "tc.json"
+
 
 def _load():
     """Carga y retorna el diccionario de datos desde un archivo JSON."""

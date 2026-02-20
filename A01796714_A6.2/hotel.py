@@ -15,7 +15,8 @@ class Hotel:
         self.location = location
         self.rooms = rooms
 
-    def create(self, hotel_id, name, location, rooms):
+    @staticmethod
+    def create(hotel_id, name, location, rooms):
         """Acción para crear un nuevo hotel."""
         data = _load()
         if hotel_id in data["hotels"]:
@@ -30,7 +31,8 @@ class Hotel:
         _save(data)
         return True
 
-    def delete(self, hotel_id):
+    @staticmethod
+    def delete(hotel_id):
         """Acción para eliminar un hotel."""
         data = _load()
         if hotel_id not in data["hotels"]:
@@ -40,7 +42,8 @@ class Hotel:
         _save(data)
         return True
 
-    def get(self, hotel_id):
+    @staticmethod
+    def get(hotel_id):
         """Acción para obtener un hotel por su ID."""
         data = _load()
         record = data["hotels"].get(hotel_id)
@@ -49,16 +52,18 @@ class Hotel:
             return None
         return Hotel(**record)
 
-    def display(self, hotel_id):
+    @staticmethod
+    def display(hotel_id):
         """Acción para mostrar la información de un hotel."""
-        hotel = Hotel.get(self, hotel_id)
+        hotel = Hotel.get(hotel_id)
         if hotel:
             print(f"Hotel        : {hotel.hotel_id}")
             print(f"Nombre       : {hotel.name}")
             print(f"Ubicación    : {hotel.location}")
             print(f"Habitaciones : {hotel.rooms}")
 
-    def modify(self, hotel_id, **kwargs):
+    @staticmethod
+    def modify(hotel_id, **kwargs):
         """Acción para modificar un hotel."""
         data = _load()
         if hotel_id not in data["hotels"]:
@@ -73,7 +78,8 @@ class Hotel:
         _save(data)
         return True
 
-    def available_rooms(self, hotel_id):
+    @staticmethod
+    def available_rooms(hotel_id):
         """Acción para mostrar las habitaciones disponibles en un hotel.
         """
         data = _load()
