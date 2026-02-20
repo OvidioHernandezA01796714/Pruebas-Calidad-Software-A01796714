@@ -1,16 +1,22 @@
+"""
+Clase Hotel con las acciones CRUD para la información del hotel
+ y manejo de las habitaciones disponibles
+"""
+
 import json
 import os
 
 
 class Hotel:
-
+    """Clase que representa un hotel."""
     def __init__(self, hotel_id, name, location, rooms):
         self.hotel_id = hotel_id
         self.name = name
         self.location = location
         self.rooms = rooms
 
-    def create(hotel_id, name, location, rooms):
+    def create(self, hotel_id, name, location, rooms):
+        """Acción para crear un nuevo hotel."""
         data = _load()
         if hotel_id in data["hotels"]:
             print(f"[ERROR] El hotel '{hotel_id}' ya existe.")
@@ -24,7 +30,8 @@ class Hotel:
         _save(data)
         return True
 
-    def delete(hotel_id):
+    def delete(self, hotel_id):
+        """Acción para eliminar un hotel."""
         data = _load()
         if hotel_id not in data["hotels"]:
             print(f"[ERROR] Hotel '{hotel_id}' no encontrado.")
@@ -33,7 +40,8 @@ class Hotel:
         _save(data)
         return True
 
-    def get(hotel_id):
+    def get(self, hotel_id):
+        """Acción para obtener un hotel por su ID."""
         data = _load()
         record = data["hotels"].get(hotel_id)
         if record is None:
@@ -41,15 +49,17 @@ class Hotel:
             return None
         return Hotel(**record)
 
-    def display(hotel_id):
-        hotel = Hotel.get(hotel_id)
+    def display(self, hotel_id):
+        """Acción para mostrar la información de un hotel."""
+        hotel = Hotel.get(self, hotel_id)
         if hotel:
             print(f"Hotel        : {hotel.hotel_id}")
             print(f"Nombre       : {hotel.name}")
             print(f"Ubicación    : {hotel.location}")
             print(f"Habitaciones : {hotel.rooms}")
 
-    def modify(hotel_id, **kwargs):
+    def modify(self, hotel_id, **kwargs):
+        """Acción para modificar un hotel."""
         data = _load()
         if hotel_id not in data["hotels"]:
             print(f"[ERROR] Hotel '{hotel_id}' no encontrado.")
@@ -63,7 +73,9 @@ class Hotel:
         _save(data)
         return True
 
-    def available_rooms(hotel_id):
+    def available_rooms(self, hotel_id):
+        """Acción para mostrar las habitaciones disponibles en un hotel.
+        """
         data = _load()
         if hotel_id not in data["hotels"]:
             print(f"[ERROR] Hotel '{hotel_id}' no encontrado.")
@@ -74,11 +86,13 @@ class Hotel:
             if r["hotel_id"] == hotel_id and r["status"] == "active"
         )
         return total - occupied
-    
+
 
 DATA_FILE = "tc.json"
 
+
 def _load():
+    """Carga y retorna el diccionario de datos desde un archivo JSON."""
     if not os.path.exists(DATA_FILE):
         return {"hotels": {}, "customers": {}, "reservations": {}}
     try:
@@ -93,6 +107,7 @@ def _load():
 
 
 def _save(data):
+    """Guarda el diccionario de datos en un archivo JSON."""
     try:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)

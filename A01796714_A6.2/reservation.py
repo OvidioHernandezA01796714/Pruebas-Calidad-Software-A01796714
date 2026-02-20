@@ -1,10 +1,12 @@
+"""Clase Reservation con las acciones CRUD para la información de las reservaciones y manejo de su estado."""
+
 import json
 import os
-
 from hotel import Hotel
 
 
 class Reservation:
+    """Clase que representa una reservación de hotel."""
     def __init__(self, reservation_id, customer_id, hotel_id,
                  check_in, check_out, status="active"):
         self.reservation_id = reservation_id
@@ -15,6 +17,7 @@ class Reservation:
         self.status = status
 
     def create(reservation_id, customer_id, hotel_id, check_in, check_out):
+        """Acción para crear una nueva reservación."""
         data = _load()
 
         if reservation_id in data["reservations"]:
@@ -48,6 +51,7 @@ class Reservation:
         return True
 
     def cancel(reservation_id):
+        """Acción para cancelar una reservación."""
         data = _load()
         if reservation_id not in data["reservations"]:
             print(f"[ERROR] Reservación '{reservation_id}' no encontrada.")
@@ -63,6 +67,7 @@ class Reservation:
         return True
 
     def get(reservation_id):
+        """Acción para obtener una reservación por su ID."""
         data = _load()
         record = data["reservations"].get(reservation_id)
         if record is None:
@@ -71,6 +76,7 @@ class Reservation:
         return Reservation(**record)
 
     def display(reservation_id):
+        """Acción para mostrar la información de una reservación."""
         res = Reservation.get(reservation_id)
         if res:
             print(f"Reservación  : {res.reservation_id}")
@@ -84,6 +90,7 @@ class Reservation:
 DATA_FILE = "tc.json"
 
 def _load():
+    """Carga y retorna el diccionario de datos desde un archivo JSON."""
     if not os.path.exists(DATA_FILE):
         return {"hotels": {}, "customers": {}, "reservations": {}}
     try:
@@ -98,6 +105,7 @@ def _load():
 
 
 def _save(data):
+    """Guarda el diccionario de datos en un archivo JSON."""
     try:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)

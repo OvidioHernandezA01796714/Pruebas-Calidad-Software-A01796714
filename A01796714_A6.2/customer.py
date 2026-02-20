@@ -1,9 +1,11 @@
+"""Clase Customer (Huésped) con las acciones CRUD para la información del cliente."""
+
 import json
 import os
 
 
 class Customer:
-
+    """Clase que representa un cliente."""
     def __init__(self, customer_id, name, email, phone=""):
         self.customer_id = customer_id
         self.name = name
@@ -11,6 +13,7 @@ class Customer:
         self.phone = phone
 
     def create(customer_id, name, email, phone=""):
+        """Acción para registrar un nuevo cliente."""
         data = _load()
         if customer_id in data["customers"]:
             print(f"[ERROR] El cliente '{customer_id}' ya existe.")
@@ -25,6 +28,7 @@ class Customer:
         return True
 
     def delete(customer_id):
+        """Acción para eliminar un cliente."""
         data = _load()
         if customer_id not in data["customers"]:
             print(f"[ERROR] Cliente '{customer_id}' no encontrado.")
@@ -34,6 +38,7 @@ class Customer:
         return True
 
     def get(customer_id):
+        """Acción para obtener un cliente por su ID."""
         data = _load()
         record = data["customers"].get(customer_id)
         if record is None:
@@ -42,6 +47,7 @@ class Customer:
         return Customer(**record)
 
     def display(customer_id):
+        """Acción para mostrar la información de un cliente."""
         customer = Customer.get(customer_id)
         if customer:
             print(f"Cliente  : {customer.customer_id}")
@@ -50,6 +56,7 @@ class Customer:
             print(f"Teléfono : {customer.phone}")
 
     def modify(customer_id, **kwargs):
+        """Acción para modificar un cliente existente."""
         data = _load()
         if customer_id not in data["customers"]:
             print(f"[ERROR] Cliente '{customer_id}' no encontrado.")
@@ -68,6 +75,7 @@ DATA_FILE = "./test/tc1.json"
 
 
 def _load():
+    """Carga y retorna el diccionario de datos desde un archivo JSON."""
     if not os.path.exists(DATA_FILE):
         return {"hotels": {}, "customers": {}, "reservations": {}}
     try:
@@ -82,6 +90,7 @@ def _load():
 
 
 def _save(data):
+    """Guarda el diccionario de datos en un archivo JSON."""
     try:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
