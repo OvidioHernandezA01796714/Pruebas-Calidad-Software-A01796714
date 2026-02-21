@@ -1,0 +1,82 @@
+{
+    "hotels": {
+        "H001": {
+            "hotel_id": "H111",
+            "name": "Hotel Independencia",
+            "location": "CDMX",
+            "rooms": 5
+        },
+        "H002": {
+            "hotel_id": "H450",
+            "name": "Hotel Sultana",
+            "location": "Monterrey",
+            "rooms": 2
+        },
+        "H003": {
+            "hotel_id": "H7346",
+            "name": "Hotel Pacifico",
+            "location": "Baja California",
+            "rooms": 1
+        }
+    },
+    "customers": {
+        "C001": {
+            "customer_id": "C123",
+            "name": "Juan Rojas",
+            "email": "juan.rojas@gmail.com",
+            "phone": "5252-2120"
+        },
+        "C002": {
+            "customer_id": "C985",
+            "name": "Alberto Sanchez",
+            "email": "alberto.sanchez@gmail.com",
+            "phone": "1236-7852"
+        },
+        "C003": {
+            "customer_id": "C875",
+            "name": "Carlos Ruiz",
+            "email": "carlos.ruiz@gmail.com",
+            "phone": "3312-9900"
+        },
+        "C004": {
+            "customer_id": "C004",
+            "name": "Ana Torres",
+            "email": "ana.torres@gmail.com",
+            "phone": "5511-3344"
+        }
+    },
+    "reservations": {
+        "R001": {
+            "reservation_id": "R001",
+            "customer_id": "C123",
+            "hotel_id": "H111",
+            "check_in": "10/07/2026",
+            "check_out": "12/07/2026",
+            "status": "activo"
+        },
+        "R002": {
+            "reservation_id": "R002",
+            "customer_id": "C985",
+            "hotel_id": "H450",
+            "check_in": "01/04/2026",
+            "check_out": "15/04/2026",
+            "status": "cancelado"
+        },
+        "R003": {
+            "reservation_id": "R003",
+            "customer_id": "C875",
+            "hotel_id": "H7346",
+            "check_in": "20/05/2026",
+            "check_out": "25/05/2026",
+            "status": "activo"
+        },
+        "R004": {
+            "reservation_id": "R004",
+            "customer_id": "C004",
+            "hotel_id": "H111",
+            "check_in": "01/08/2026",
+            "check_out": "05/08/2026",
+            "status": "activo"
+        }
+    }
+}

@@ -1,0 +1,126 @@
+{
+    "hotels": {
+        "H010": {
+            "hotel_id": "H010",
+            "name": "Torre Ejecutiva",
+            "location": "Monterrey",
+            "rooms": 4
+        },
+        "H011": {
+            "hotel_id": "H011",
+            "name": "Posada del Sol",
+            "location": "Merida",
+            "rooms": 2
+        },
+        "H012": {
+            "hotel_id": "H012",
+            "name": "Suites Reforma",
+            "location": "CDMX",
+            "rooms": 1
+        },
+        "H013": {
+            "hotel_id": "H013",
+            "name": "Grand Caribe",
+            "location": "Cancun",
+            "rooms": 3
+        }
+    },
+    "customers": {
+        "C010": {
+            "customer_id": "C010",
+            "name": "Fernando Castillo",
+            "email": "fcastillo@proton.com",
+            "phone": "8112-4455"
+        },
+        "C011": {
+            "customer_id": "C011",
+            "name": "Gabriela Vega",
+            "email": "gvega@yahoo.com",
+            "phone": "9991-6677"
+        },
+        "C012": {
+            "customer_id": "C012",
+            "name": "Diego Navarro",
+            "email": "diego.navarro@empresa.mx",
+            "phone": "5544-8800"
+        },
+        "C013": {
+            "customer_id": "C013",
+            "name": "Valeria Montes",
+            "email": "vmontes@gmail.com",
+            "phone": "3322-1199"
+        },
+        "C014": {
+            "customer_id": "C014",
+            "name": "Ricardo Salas",
+            "email": "rsalas@hotmail.com",
+            "phone": "2211-7766"
+        }
+    },
+    "reservations": {
+        "R010": {
+            "reservation_id": "R010",
+            "customer_id": "C010",
+            "hotel_id": "H010",
+            "check_in": "05/01/2026",
+            "check_out": "10/01/2026",
+            "status": "activo"
+        },
+        "R011": {
+            "reservation_id": "R011",
+            "customer_id": "C011",
+            "hotel_id": "H011",
+            "check_in": "14/02/2026",
+            "check_out": "18/02/2026",
+            "status": "activo"
+        },
+        "R012": {
+            "reservation_id": "R012",
+            "customer_id": "C012",
+            "hotel_id": "H012",
+            "check_in": "01/03/2026",
+            "check_out": "03/03/2026",
+            "status": "activo"
+        },
+        "R013": {
+            "reservation_id": "R013",
+            "customer_id": "C013",
+            "hotel_id": "H013",
+            "check_in": "20/06/2026",
+            "check_out": "27/06/2026",
+            "status": "cancelado"
+        },
+        "R014": {
+            "reservation_id": "R014",
+            "customer_id": "C014",
+            "hotel_id": "H010",
+            "check_in": "15/08/2026",
+            "check_out": "20/08/2026",
+            "status": "activo"
+        },
+        "R015": {
+            "reservation_id": "R015",
+            "customer_id": "C010",
+            "hotel_id": "H013",
+            "check_in": "10/11/2026",
+            "check_out": "14/11/2026",
+            "status": "cancelado"
+        },
+        "R016": {
+            "reservation_id": "R016",
+            "customer_id": "CLIENTE_NO_REGISTRADO",
+            "hotel_id": "H011",
+            "check_in": "01/12/2026",
+            "check_out": "05/12/2026",
+            "status": "activo"
+        },
+        "R017": {
+            "reservation_id": "R017",
+            "customer_id": "C011",
+            "hotel_id": "HOTEL_NO_REGISTRADO",
+            "check_in": "20/12/2026",
+            "check_out": "25/12/2026",
+            "status": "activo"
+        }
+    }
+}

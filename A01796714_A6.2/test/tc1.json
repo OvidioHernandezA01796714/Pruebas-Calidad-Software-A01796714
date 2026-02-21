@@ -1,0 +1,48 @@
+{
+    "hotels": {
+        "H001": {
+            "hotel_id": "H001",
+            "name": "Gold Hotel",
+            "location": "CDMX",
+            "rooms": 5
+        },
+        "H002": {
+            "hotel_id": "H002",
+            "name": "Hotel Boutique",
+            "location": "Guadalajara",
+            "rooms": 2
+        }
+    },
+    "customers": {
+        "C001": {
+            "customer_id": "C001",
+            "name": "Luis Perez",
+            "email": "luis@gmail.com",
+            "phone": "5050-2020"
+        },
+        "C002": {
+            "customer_id": "C002",
+            "name": "Maria Lopez",
+            "email": "maria@gmail.com",
+            "phone": "4040-5678"
+        }
+    },
+    "reservations": {
+        "R001": {
+            "reservation_id": "R001",
+            "customer_id": "C001",
+            "hotel_id": "H001",
+            "check_in": "10/07/2026",
+            "check_out": "12/07/2026",
+            "status": "activa"
+        },
+        "R002": {
+            "reservation_id": "R002",
+            "customer_id": "C002",
+            "hotel_id": "H002",
+            "check_in": "01/04/2026",
+            "check_out": "15/04/2026",
+            "status": "cancelada"
+        }
+    }
+}
