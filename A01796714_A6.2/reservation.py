@@ -10,7 +10,7 @@ class Reservation:
     """Clase que representa una reservación de hotel."""
     # pylint: disable=too-many-arguments, too-many-positional-arguments
     def __init__(self, reservation_id, customer_id, hotel_id,
-                 check_in, check_out, status="activo"):
+                 check_in, check_out, status="activa"):
         self.reservation_id = reservation_id
         self.customer_id = customer_id
         self.hotel_id = hotel_id
@@ -48,7 +48,7 @@ class Reservation:
             "hotel_id": hotel_id,
             "check_in": check_in,
             "check_out": check_out,
-            "status": "activo",
+            "status": "activa",
         }
         _save(data)
         return True
@@ -60,13 +60,13 @@ class Reservation:
         if reservation_id not in data["reservations"]:
             print(f"[ERROR] Reservación '{reservation_id}' no encontrada.")
             return False
-        if data["reservations"][reservation_id]["status"] == "cancelled":
+        if data["reservations"][reservation_id]["status"] == "cancelada":
             print(
                 f"[ERROR] La reservación '{reservation_id}' "
                 f"ya está cancelada."
             )
             return False
-        data["reservations"][reservation_id]["status"] = "cancelled"
+        data["reservations"][reservation_id]["status"] = "cancelada"
         _save(data)
         return True
 

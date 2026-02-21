@@ -89,7 +89,7 @@ class Hotel:
         total = data["hotels"][hotel_id]["rooms"]
         occupied = sum(
             1 for r in data["reservations"].values()
-            if r["hotel_id"] == hotel_id and r["status"] == "active"
+            if r["hotel_id"] == hotel_id and r["status"] == "activa"
         )
         return total - occupied
 
