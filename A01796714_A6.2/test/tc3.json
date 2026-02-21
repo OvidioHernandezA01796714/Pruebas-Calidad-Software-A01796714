@@ -121,6 +121,14 @@
             "check_in": "20/12/2026",
             "check_out": "25/12/2026",
             "status": "activo"
+        },
+        "R099": {
+            "reservation_id": "R099",
+            "customer_id": "C010",
+            "hotel_id": "H012",
+            "check_in": "01/01/2027",
+            "check_out": "05/01/2027",
+            "status": "activa"
         }
     }
 }
